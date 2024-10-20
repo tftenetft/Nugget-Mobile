@@ -8,7 +8,7 @@
 import Foundation
 
 enum FeatureFlagCategory: String {
-    case SpringBoard = "SpringBoard"
+    case SpringBoard = "BluetoothFeatures"
     case Photos = "CoreAudioServices"
 }
 

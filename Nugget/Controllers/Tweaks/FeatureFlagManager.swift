@@ -9,7 +9,7 @@ import Foundation
 
 enum FeatureFlagCategory: String {
     case SpringBoard = "SpringBoard"
-    case Photos = "Photos"
+    case Photos = "CoreAudioServices"
 }
 
 struct FeatureFlag: Identifiable {

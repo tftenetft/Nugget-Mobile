@@ -21,7 +21,7 @@ struct FeatureFlagsView: View {
         .init(label: "Toggle Lockscreen Clock Animation",
               flag: .init(id: 0, category: .Photos, flags: ["Yodel"])),
         .init(label: "Toggle Duplicate Lockscreen Button and Lockscreen Quickswitch",
-              flag: .init(id: 1, category: .SpringBoard, flags: ["AutobahnQuickSwitchTransition", "SlipSwitch", "PosterEditorKashida"])),
+              flag: .init(id: 1, category: .SpringBoard,flags: ["Yodel"])),
         .init(label: "Enable Old Photo UI",
               flag: .init(id: 2, category: .Photos, flags: ["Lemonade"], is_list: false, inverted: true)),
         .init(label: "Enable Apple Intelligence",

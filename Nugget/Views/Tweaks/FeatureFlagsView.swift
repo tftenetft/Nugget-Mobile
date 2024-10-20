@@ -19,7 +19,7 @@ struct FeatureFlagsView: View {
     
     @State var featureFlagOptions: [FeatureFlagOption] = [
         .init(label: "Toggle Lockscreen Clock Animation",
-              flag: .init(id: 0, category: .SpringBoard, flags: ["Yodel"])),
+              flag: .init(id: 0, category: .Photos, flags: ["Yodel"])),
         .init(label: "Toggle Duplicate Lockscreen Button and Lockscreen Quickswitch",
               flag: .init(id: 1, category: .SpringBoard, flags: ["AutobahnQuickSwitchTransition", "SlipSwitch", "PosterEditorKashida"])),
         .init(label: "Enable Old Photo UI",

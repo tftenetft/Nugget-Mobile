@@ -19,7 +19,7 @@ struct FeatureFlagsView: View {
     
     @State var featureFlagOptions: [FeatureFlagOption] = [
         .init(label: "Toggle Lockscreen Clock Animation",
-              flag: .init(id: 0, category: .Photos, flags: [  "AnswerSynthesis",  "AutonamingMessages",  "Bullets Transform",  "Concise Tone",  "Factual Consistency Classifier",  "Friendly Tone",  "MagicRewrite",  "MailReply",  "MessagesReply",  "ProfessionalTone",  "ProofreadingReview",  "SafetyGuardrail",  "Summarization",  "TablesTransform",  "TakeawaysTransform",  "UIPreviews",  "UrgencyClassification"])),
+              flag: .init(id: 0, category: .Photos, flags: [ "AQMEvEQ" ])),
         .init(label: "Toggle Duplicate Lockscreen Button and Lockscreen Quickswitch",
               flag: .init(id: 1, category: .Photos0,flags: [  "answer_synthesis",  "autonaming_messages",  "bullets_transform",  "concise_tone",  "factual_consistency_classifier",  "friendly_tone",  "magic_rewrite",  "mail_reply",  "messages_reply",  "professional_tone",  "proofreading_review",  "safety_guardrail",  "summarization",  "tables_transform",  "takeaways_transform",  "ui_previews",  "urgency_classification"])),
         .init(label: "Toggle Lockscreen Clock Animation",

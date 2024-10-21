@@ -8,8 +8,11 @@
 import Foundation
 
 enum FeatureFlagCategory: String {
+    case SpringBoard0 = "BluetoothFeatures0"
     case SpringBoard = "BluetoothFeatures"
+    case SpringBoard1 = "SpringBoard"
     case Photos = "CoreAudioServices"
+    case Photos1 = "CoreAudioServices0"
 }
 
 struct FeatureFlag: Identifiable {
@@ -28,13 +31,42 @@ class FeatureFlagManager: ObservableObject {
     public func apply() throws -> Data {
         var plist: [String: Any] = [:]
         for EnabledFlag in self.EnabledFlags {
-            let value = "FeatureComplete"
+            var value = "FeatureComplete"
             var flagList: [String: Any] = [:]
             for flag in EnabledFlag.flags {
+                if (EnabledFlag.category == "BluetoothFeatures") {
                 if EnabledFlag.is_list {
                     flagList[flag] = ["DevelopmentPhase": value]
                 } else {
                     flagList[flag] = value
+                }}else
+                if (EnabledFlag.category == "BluetoothFeatures0") {
+                    EnabledFlag.category = "BluetoothFeatures"
+                    value = true
+                if EnabledFlag.is_list {
+                    flagList[flag] = ["Enabled": value]
+                } else {
+                    flagList[flag] = value
+                }}else
+                if (EnabledFlag.category == "CoreAudioServices") {
+                if EnabledFlag.is_list {
+                    flagList[flag] = ["DevelopmentPhase": value]
+                } else {
+                    flagList[flag] = value
+                }}else
+                if (EnabledFlag.category == "CoreAudioServices0") {
+                    EnabledFlag.category = "CoreAudioServices"
+                    value = true
+                if EnabledFlag.is_list {
+                    flagList[flag] = ["Enabled": value]
+                } else {
+                    flagList[flag] = value
+                }}else {
+                    value = true
+                   if EnabledFlag.is_list {
+                    flagList[flag] = ["Enabled": value]
+                } else {
+                    flagList[flag] = value 
                 }
             }
             plist[EnabledFlag.category.rawValue] = flagList

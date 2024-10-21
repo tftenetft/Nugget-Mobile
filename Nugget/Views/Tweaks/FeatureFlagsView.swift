@@ -19,13 +19,17 @@ struct FeatureFlagsView: View {
     
     @State var featureFlagOptions: [FeatureFlagOption] = [
         .init(label: "Toggle Lockscreen Clock Animation",
-              flag: .init(id: 0, category: .Photos, flags: ["Yodel"])),
+              flag: .init(id: 0, category: .Photos, flags: [  "AnswerSynthesis",  "AutonamingMessages",  "Bullets Transform",  "Concise Tone",  "Factual Consistency Classifier",  "Friendly Tone",  "MagicRewrite",  "MailReply",  "MessagesReply",  "ProfessionalTone",  "ProofreadingReview",  "SafetyGuardrail",  "Summarization",  "TablesTransform",  "TakeawaysTransform",  "UIPreviews",  "UrgencyClassification"])),
         .init(label: "Toggle Duplicate Lockscreen Button and Lockscreen Quickswitch",
-              flag: .init(id: 1, category: .SpringBoard,flags: ["Yodel"])),
+              flag: .init(id: 1, category: .Photos0,flags: [  "answer_synthesis",  "autonaming_messages",  "bullets_transform",  "concise_tone",  "factual_consistency_classifier",  "friendly_tone",  "magic_rewrite",  "mail_reply",  "messages_reply",  "professional_tone",  "proofreading_review",  "safety_guardrail",  "summarization",  "tables_transform",  "takeaways_transform",  "ui_previews",  "urgency_classification"])),
+        .init(label: "Toggle Lockscreen Clock Animation",
+              flag: .init(id: 2, category: .SpringBoard, flags: [  "AnswerSynthesis",  "AutonamingMessages",  "Bullets Transform",  "Concise Tone",  "Factual Consistency Classifier",  "Friendly Tone",  "MagicRewrite",  "MailReply",  "MessagesReply",  "ProfessionalTone",  "ProofreadingReview",  "SafetyGuardrail",  "Summarization",  "TablesTransform",  "TakeawaysTransform",  "UIPreviews",  "UrgencyClassification"])),
+        .init(label: "Toggle Duplicate Lockscreen Button and Lockscreen Quickswitch",
+              flag: .init(id: 3, category: .SpringBoard0,flags: [  "answer_synthesis",  "autonaming_messages",  "bullets_transform",  "concise_tone",  "factual_consistency_classifier",  "friendly_tone",  "magic_rewrite",  "mail_reply",  "messages_reply",  "professional_tone",  "proofreading_review",  "safety_guardrail",  "summarization",  "tables_transform",  "takeaways_transform",  "ui_previews",  "urgency_classification"])),
         .init(label: "Enable Old Photo UI",
-              flag: .init(id: 2, category: .Photos, flags: ["Lemonade"], is_list: false, inverted: true)),
+              flag: .init(id: 4, category: .Photos, flags: ["Lemonade"], is_list: false, inverted: true)),
         .init(label: "Enable Apple Intelligence",
-              flag: .init(id: 3, category: .SpringBoard, flags: ["Domino", "SuperDomino"]))
+              flag: .init(id: 5, category: .SpringBoard1, flags: ["Domino", "SuperDomino"]))
     ]
     
     var body: some View {

@@ -93,7 +93,7 @@ class EligibilityManager: ObservableObject {
     func setDeviceModelCode(_ enabled: Bool) {
         spoofingDevice = enabled
         if enabled {
-            var newModel = "iPhone17,3"
+            var newModel = "iPhone15,4"
             if UIDevice.current.userInterfaceIdiom == .pad {
                 newModel = "iPad16,3"
             }

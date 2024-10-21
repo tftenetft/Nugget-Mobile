@@ -17,7 +17,7 @@ enum FeatureFlagCategory: String {
 
 struct FeatureFlag: Identifiable {
     let id: Int
-    let category: FeatureFlagCategory
+    var category: FeatureFlagCategory
     let flags: [String]
     var is_list: Bool = true
     var inverted: Bool = false
@@ -42,9 +42,9 @@ class FeatureFlagManager: ObservableObject {
                 }}else
                 if (EnabledFlag.category == "BluetoothFeatures0") {
                     EnabledFlag.category = "BluetoothFeatures"
-                    value = true
+                    var value1 = true
                 if EnabledFlag.is_list {
-                    flagList[flag] = ["Enabled": value]
+                    flagList[flag] = ["Enabled": value1]
                 } else {
                     flagList[flag] = value
                 }}else
@@ -56,9 +56,9 @@ class FeatureFlagManager: ObservableObject {
                 }}else
                 if (EnabledFlag.category == "CoreAudioServices0") {
                     EnabledFlag.category = "CoreAudioServices"
-                    value = true
+                    var value1 = true
                 if EnabledFlag.is_list {
-                    flagList[flag] = ["Enabled": value]
+                    flagList[flag] = ["Enabled": value1]
                 } else {
                     flagList[flag] = value
                 }}else {

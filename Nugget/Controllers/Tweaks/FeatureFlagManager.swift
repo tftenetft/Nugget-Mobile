@@ -32,7 +32,7 @@ class FeatureFlagManager: ObservableObject {
             var flagList: [String: Any] = [:]
             for flag in EnabledFlag.flags {
                 if EnabledFlag.is_list {
-                    flagList[flag] = ["Enabled": value]
+                    flagList[flag] = ["DevelopmentPhase": value]
                 } else {
                     flagList[flag] = value
                 }

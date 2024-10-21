@@ -31,6 +31,7 @@ class FeatureFlagManager: ObservableObject {
             let value = !EnabledFlag.inverted
             var flagList: [String: Any] = [:]
             for flag in EnabledFlag.flags {
+                value = "FeatureComplete"
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value]
                 } else {

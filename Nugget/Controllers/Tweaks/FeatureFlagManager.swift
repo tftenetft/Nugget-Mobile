@@ -9,10 +9,10 @@ import Foundation
 
 enum FeatureFlagCategory: String {
     case SpringBoard0 = "GenerativeModels"
-    case SpringBoard = "GenerativeModels"
+    case SpringBoard = "GenerativeModels2"
     case SpringBoard1 = "SpringBoard"
     case Photos = "CoreAudioServices"
-    case Photos1 = "CoreAudioServices"
+    case Photos1 = "CoreAudioServices2"
 }
 
 struct FeatureFlag: Identifiable {

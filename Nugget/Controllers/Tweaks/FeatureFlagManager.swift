@@ -40,20 +40,20 @@ class FeatureFlagManager: ObservableObject {
                 } else {
                     flagList[flag] = value
                 }}else
-                if (EnabledFlag.category.rawValue == FeatureFlagCategory.SpringBoard0) {
+                if (EnabledFlag.category == FeatureFlagCategory.SpringBoard0) {
                     var value1 = true
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]
                 } else {
                     flagList[flag] = value
                 }}else
-                if (EnabledFlag.category.rawValue == FeatureFlagCategory.Photos) {
+                if (EnabledFlag.category == FeatureFlagCategory.Photos) {
                 if EnabledFlag.is_list {
                     flagList[flag] = ["DevelopmentPhase": value]
                 } else {
                     flagList[flag] = value
                 }}else
-                if (EnabledFlag.category.rawValue == FeatureFlagCategory.Photos0) {
+                if (EnabledFlag.category == FeatureFlagCategory.Photos0) {
                     var value1 = true
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]

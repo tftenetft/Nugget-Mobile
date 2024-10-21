@@ -28,10 +28,9 @@ class FeatureFlagManager: ObservableObject {
     public func apply() throws -> Data {
         var plist: [String: Any] = [:]
         for EnabledFlag in self.EnabledFlags {
-            let value = !EnabledFlag.inverted
+            let value = "FeatureComplete"
             var flagList: [String: Any] = [:]
             for flag in EnabledFlag.flags {
-                value = "FeatureComplete"
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value]
                 } else {

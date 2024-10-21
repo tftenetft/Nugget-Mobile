@@ -95,7 +95,7 @@ class EligibilityManager: ObservableObject {
         if enabled {
             var newModel = "iPhone15,4"
             if UIDevice.current.userInterfaceIdiom == .pad {
-                newModel = "iPad16,3"
+                newModel = "iPad16,4"
             }
             MobileGestaltManager.shared.setGestaltValue(key: "h9jDsbgj7xIVeIQ8S3/X3Q", value: newModel)
         } else {

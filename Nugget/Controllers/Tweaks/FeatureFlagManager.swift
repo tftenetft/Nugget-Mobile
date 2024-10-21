@@ -8,11 +8,11 @@
 import Foundation
 
 enum FeatureFlagCategory: String {
-    case SpringBoard0 = "GenerativeModels0"
+    case SpringBoard0 = "GenerativeModels"
     case SpringBoard = "GenerativeModels"
     case SpringBoard1 = "SpringBoard"
     case Photos = "CoreAudioServices"
-    case Photos1 = "CoreAudioServices0"
+    case Photos1 = "CoreAudioServices"
 }
 
 struct FeatureFlag: Identifiable {
@@ -34,28 +34,26 @@ class FeatureFlagManager: ObservableObject {
             var value = "FeatureComplete"
             var flagList: [String: Any] = [:]
             for flag in EnabledFlag.flags {
-                if (EnabledFlag.category.rawValue == "GenerativeModels") {
+                if (EnabledFlag.category == FeatureFlagCategory.SpringBoard) {
                 if EnabledFlag.is_list {
                     flagList[flag] = ["DevelopmentPhase": value]
                 } else {
                     flagList[flag] = value
                 }}else
-                if (EnabledFlag.category.rawValue == "GenerativeModels0") {
-                    EnabledFlag.category.rawValue = "GenerativeModels"
+                if (EnabledFlag.category.rawValue == FeatureFlagCategory.SpringBoard0) {
                     var value1 = true
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]
                 } else {
                     flagList[flag] = value
                 }}else
-                if (EnabledFlag.category.rawValue == "CoreAudioServices") {
+                if (EnabledFlag.category.rawValue == FeatureFlagCategory.Photos) {
                 if EnabledFlag.is_list {
                     flagList[flag] = ["DevelopmentPhase": value]
                 } else {
                     flagList[flag] = value
                 }}else
-                if (EnabledFlag.category.rawValue == "CoreAudioServices0") {
-                    EnabledFlag.category.rawValue = "CoreAudioServices"
+                if (EnabledFlag.category.rawValue == FeatureFlagCategory.Photos0) {
                     var value1 = true
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]

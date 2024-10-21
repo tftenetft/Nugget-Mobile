@@ -67,7 +67,7 @@ class FeatureFlagManager: ObservableObject {
                     flagList[flag] = ["Enabled": value]
                 } else {
                     flagList[flag] = value 
-                }
+                }}
             }
             plist[EnabledFlag.category.rawValue] = flagList
         }

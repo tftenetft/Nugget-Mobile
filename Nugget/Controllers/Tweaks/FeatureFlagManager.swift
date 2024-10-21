@@ -8,8 +8,8 @@
 import Foundation
 
 enum FeatureFlagCategory: String {
-    case SpringBoard0 = "BluetoothFeatures0"
-    case SpringBoard = "BluetoothFeatures"
+    case SpringBoard0 = "GenerativeModels0"
+    case SpringBoard = "GenerativeModels"
     case SpringBoard1 = "SpringBoard"
     case Photos = "CoreAudioServices"
     case Photos1 = "CoreAudioServices0"
@@ -34,14 +34,14 @@ class FeatureFlagManager: ObservableObject {
             var value = "FeatureComplete"
             var flagList: [String: Any] = [:]
             for flag in EnabledFlag.flags {
-                if (EnabledFlag.category == "BluetoothFeatures") {
+                if (EnabledFlag.category == "GenerativeModels") {
                 if EnabledFlag.is_list {
                     flagList[flag] = ["DevelopmentPhase": value]
                 } else {
                     flagList[flag] = value
                 }}else
-                if (EnabledFlag.category == "BluetoothFeatures0") {
-                    EnabledFlag.category = "BluetoothFeatures"
+                if (EnabledFlag.category == "GenerativeModels0") {
+                    EnabledFlag.category = SpringBoard
                     var value1 = true
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]
@@ -55,7 +55,7 @@ class FeatureFlagManager: ObservableObject {
                     flagList[flag] = value
                 }}else
                 if (EnabledFlag.category == "CoreAudioServices0") {
-                    EnabledFlag.category = "CoreAudioServices"
+                    EnabledFlag.category = Photos
                     var value1 = true
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]

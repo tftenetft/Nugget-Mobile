@@ -12,7 +12,7 @@ enum FeatureFlagCategory: String {
     case SpringBoard = "GenerativeModels2"
     case SpringBoard1 = "SpringBoard"
     case Photos = "CoreAudioServices"
-    case Photos1 = "CoreAudioServices2"
+    case Photos0 = "CoreAudioServices2"
 }
 
 struct FeatureFlag: Identifiable {

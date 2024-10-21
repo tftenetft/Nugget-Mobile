@@ -45,7 +45,7 @@ class FeatureFlagManager: ObservableObject {
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]
                 } else {
-                    flagList[flag] = value
+                    flagList[flag] = value1
                 }}else
                 if (EnabledFlag.category == FeatureFlagCategory.Photos) {
                 if EnabledFlag.is_list {
@@ -58,13 +58,13 @@ class FeatureFlagManager: ObservableObject {
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]
                 } else {
-                    flagList[flag] = value
+                    flagList[flag] = value1
                 }}else {
-                    value = true
+                    var value1 = true
                    if EnabledFlag.is_list {
-                    flagList[flag] = ["Enabled": value]
+                    flagList[flag] = ["Enabled": value1]
                 } else {
-                    flagList[flag] = value 
+                    flagList[flag] = value1
                 }}
             }
             plist[EnabledFlag.category.rawValue] = flagList

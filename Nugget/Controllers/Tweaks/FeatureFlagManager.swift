@@ -39,36 +39,45 @@ class FeatureFlagManager: ObservableObject {
                     flagList[flag] = ["DevelopmentPhase": value]
                 } else {
                     flagList[flag] = value
-                }plist["GenerativeModels"] = flagList;}else
+                }
+                    plist["GenerativeModels"] = flagList
+                }else
                 if (EnabledFlag.category == FeatureFlagCategory.SpringBoard0) {
                     var value1 = true
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]
                 } else {
                     flagList[flag] = value1
-                } plist["GenerativeModels"] = flagList; }else
+                } 
+                    plist["GenerativeModels"] = flagList 
+                }else
                 if (EnabledFlag.category == FeatureFlagCategory.Photos) {
                 if EnabledFlag.is_list {
                     flagList[flag] = ["DevelopmentPhase": value]
                 } else {
                     flagList[flag] = value
-                } plist[EnabledFlag.category.rawValue] = flagList; }else
+                } 
+                    plist[EnabledFlag.category.rawValue] = flagList 
+                }else
                 if (EnabledFlag.category == FeatureFlagCategory.Photos0) {
                     var value1 = true
                 if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]
                 } else {
                     flagList[flag] = value1
-                } plist[EnabledFlag.category.rawValue] = flagList; }else {
+                } 
+                    plist[EnabledFlag.category.rawValue] = flagList 
+                }else {
                     var value1 = true
                    if EnabledFlag.is_list {
                     flagList[flag] = ["Enabled": value1]
                 } else {
                     flagList[flag] = value1
-                } plist[EnabledFlag.category.rawValue] = flagList;
+                } 
+                    plist[EnabledFlag.category.rawValue] = flagList
                 }
             }
-            //1
+            
         }
         // convert to data and return
         return try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)

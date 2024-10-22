@@ -31,16 +31,33 @@ class FeatureFlagManager: ObservableObject {
     public func apply() throws -> Data {
         var plist: [String: Any] = [:]
         for EnabledFlag in self.EnabledFlags {
-            var value = "FeatureComplete"
+            var value = true
+            //"FeatureComplete"
             var flagList: [String: Any] = [:]
             for flag in EnabledFlag.flags {
                 if (EnabledFlag.category == FeatureFlagCategory.SpringBoard) {
                 if EnabledFlag.is_list {
-                    flagList[flag] = ["DevelopmentPhase": value]
+                    flagList[flag] = ["Enabled": value]
                 } else {
                     flagList[flag] = value
                 }
                     plist["GenerativeModels"] = flagList
+                    plist["CloudExperiences"] = flagList
+                    plist["CloudSharingUI"] = flagList
+                    plist["CloudServices"] = flagList
+                    plist["CloudKit"] = flagList
+                    plist["CoreText"] = flagList
+                    plist["CoreML"] = flagList
+                    plist["MLKitFeatures"] = flagList
+                    plist["Messages"] = flagList
+                    plist["Mail"] = flagList
+                    plist["IntelligencePlatform"] = flagList
+                    plist["InputContext"] = flagList
+                    plist["cloudsettings"] = flagList
+                    plist["NLPFramework"] = flagList
+                    plist["TextComposer"] = flagList
+                    plist["TextInputCore"] = flagList
+                    plist["TextRecognition"] = flagList
                 }else
                 if (EnabledFlag.category == FeatureFlagCategory.SpringBoard0) {
                     var value1 = true
@@ -49,15 +66,42 @@ class FeatureFlagManager: ObservableObject {
                 } else {
                     flagList[flag] = value1
                 } 
-                    plist["GenerativeModels"] = flagList 
+                    plist["GenerativeModels"] = flagList
+                    plist["CloudExperiences"] = flagList
+                    plist["CloudSharingUI"] = flagList
+                    plist["CloudServices"] = flagList
+                    plist["CloudKit"] = flagList
+                    plist["CoreText"] = flagList
+                    plist["CoreML"] = flagList
+                    plist["MLKitFeatures"] = flagList
+                    plist["Messages"] = flagList
+                    plist["Mail"] = flagList
+                    plist["IntelligencePlatform"] = flagList
+                    plist["InputContext"] = flagList
+                    plist["cloudsettings"] = flagList
+                    plist["NLPFramework"] = flagList
+                    plist["TextComposer"] = flagList
+                    plist["TextInputCore"] = flagList
+                    plist["TextRecognition"] = flagList
                 }else
                 if (EnabledFlag.category == FeatureFlagCategory.Photos) {
                 if EnabledFlag.is_list {
-                    flagList[flag] = ["DevelopmentPhase": value]
+                    flagList[flag] = ["Enabled": value]
                 } else {
                     flagList[flag] = value
                 } 
-                    plist[EnabledFlag.category.rawValue] = flagList 
+                    plist[EnabledFlag.category.rawValue] = flagList
+                    plist["AudioAccessoryFeatures"] = flagList
+                    plist["HeadphoneFeatures"] = flagList
+                    plist["AudioAnalytics"] = flagList
+                    plist["AudioDSP"] = flagList
+                    plist["AudioSession"] = flagList
+                    plist["CoreMedia"] = flagList
+                    plist["DialogEngine"] = flagList
+                    plist["Accessibility"] = flagList
+                    plist["Music"] = flagList
+                    plist["MusicKit"] = flagList
+                    plist["MusicUI"] = flagList
                 }else
                 if (EnabledFlag.category == FeatureFlagCategory.Photos0) {
                     var value1 = true

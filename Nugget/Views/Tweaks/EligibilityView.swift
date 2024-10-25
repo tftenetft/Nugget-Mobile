@@ -29,7 +29,7 @@ struct EligibilityView: View {
 //            }
             
             // MARK: AI Enabler
-            if #available(iOS 18.1, *) {
+            if #available(iOS 17.2, *) {
                 Section {
                     Toggle(isOn: $aiEnabler) {
                         HStack {

@@ -37,7 +37,7 @@ class RestoreManager {
         list.append(ConcreteFile(path: "", domain: "SysContainerDomain-../../../../../../../..\(basePath)\(url.path(percentEncoded: false))", contents: contents, owner: owner, group: group))
     }
 
-    func convertToDomain(path: String?) -> String? {
+    func convertToDomain(path: String) -> String? {
         // if it doesn't start with a / then it is already a domain
         if !path.starts(with: "/") {
             return path
@@ -168,11 +168,11 @@ class RestoreManager {
                 } else {
                     // file is a regular domain, does not utilize exploit
                     exploit_only = false
-                    addRegularConcreteFile(list: &backupFiles, path: file.path, contents: file.contents, owner: file.owner, group: file.group, last_path: &last_path, last_domain: &last_domain, flag: false)
+                    addRegularConcreteFile(list: &backupFiles, path: file.path, contents: file.contents, owner: file.owner, group: file.group, last_path: last_path, last_domain: last_domain, flag: false)
                 }
             }
             
-            addRegularConcreteFile(list: &backupFiles, path: self.convertToDomain(path: "/var/mobile/Library/Logs/RTCReporting/test.txt"), last_path: &last_path, last_domain: &last_domain, flag: true)
+            addRegularConcreteFile(list: &backupFiles, path: self.convertToDomain(path: "/var/mobile/Library/Logs/RTCReporting/test.txt"), contents: Data(), last_path: last_path, last_domain: last_domain, flag: true)
             
             // crash on purpose to skip setup (only works with exploit files)
             if exploit_only {

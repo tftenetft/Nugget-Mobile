@@ -61,7 +61,7 @@ class RestoreManager {
         return nil
     }
     
-    private func addRegularConcreteFile(list: inout [BackupFile], path: String?, contents: Data?, owner: Int32? = 501, group: Int32? = 501, last_path: inout String?, last_domain: inout String, flag: inout Bool?) {
+    private func addRegularConcreteFile(list: inout [BackupFile], path: String, contents: Data?, owner: Int32? = 501, group: Int32? = 501, last_path: inout String, last_domain: inout String, flag: inout Bool) {
         let path_items = path.components(separatedBy: "/")
         guard path_items.count > 0 else { return }
         let domain = path_items[0]

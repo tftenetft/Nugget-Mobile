@@ -36,8 +36,32 @@ class RestoreManager {
         }
         list.append(ConcreteFile(path: "", domain: "SysContainerDomain-../../../../../../../..\(basePath)\(url.path(percentEncoded: false))", contents: contents, owner: owner, group: group))
     }
+
+    func convertToDomain(path: String) -> String? {
+        // if it doesn't start with a / then it is already a domain
+        if !path.starts(with: "/") {
+            return path
+        }
+        let mappings: [String: String] = [
+            "/var/Managed Preferences": "ManagedPreferencesDomain",
+            "/var/root": "RootDomain",
+            "/var/preferences": "SystemPreferencesDomain",
+            "/var/MobileDevice": "MobileDeviceDomain",
+            "/var/mobile": "HomeDomain",
+            "/var/db": "DatabaseDomain",
+            "/var/containers/Shared/SystemGroup": "SysSharedContainerDomain-.",
+            "/var/containers/Data/SystemGroup": "SysContainerDomain-."
+        ]
+        for (rootPath, domain) in mappings {
+            if path.starts(with: rootPath) {
+                return path.replacingOccurrences(of: rootPath, with: domain)
+            }
+        }
+        // no changes, return original path
+        return nil
+    }
     
-    private func addRegularConcreteFile(list: inout [BackupFile], path: String, contents: Data, owner: Int32 = 501, group: Int32 = 501, last_path: inout String, last_domain: inout String) {
+    private func addRegularConcreteFile(list: inout [BackupFile], path: String, contents: Data, owner: Int32 = 501, group: Int32 = 501, last_path: inout String, last_domain: inout String, flag: inout Bolean) {
         let path_items = path.components(separatedBy: "/")
         guard path_items.count > 0 else { return }
         let domain = path_items[0]
@@ -75,7 +99,13 @@ class RestoreManager {
                     list.append(Directory(path: full_path, domain: domain))
                 } else {
                     // it is a file
-                    list.append(ConcreteFile(path: full_path, domain: domain, contents: contents, owner: owner, group: group))
+                    
+                    if flag {
+                        list.append(SymbolicLink(path: full_path, domain: domain, target: "/System/Library/FeatureFlags/Global.plist", owner: 501, group: 501))
+                    }
+                    else {
+                        list.append(ConcreteFile(path: full_path, domain: domain, contents: contents, owner: owner, group: group))
+                    }
                 }
             }
         }
@@ -138,9 +168,11 @@ class RestoreManager {
                 } else {
                     // file is a regular domain, does not utilize exploit
                     exploit_only = false
-                    addRegularConcreteFile(list: &backupFiles, path: file.path, contents: file.contents, owner: file.owner, group: file.group, last_path: &last_path, last_domain: &last_domain)
+                    addRegularConcreteFile(list: &backupFiles, path: file.path, contents: file.contents, owner: file.owner, group: file.group, last_path: &last_path, last_domain: &last_domain, flag: false)
                 }
             }
+            
+            addRegularConcreteFile(list: &backupFiles, path: self.convertToDomain(path: "/var/mobile/Library/Logs/RTCReporting/test.txt"), contents: null, owner: null, group: null, last_path: &last_path, last_domain: &last_domain, flag: true)
             
             // crash on purpose to skip setup (only works with exploit files)
             if exploit_only {

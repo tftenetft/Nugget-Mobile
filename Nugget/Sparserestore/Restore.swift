@@ -61,7 +61,7 @@ class RestoreManager {
         return nil
     }
     
-    private func addRegularConcreteFile(list: inout [BackupFile], path: String, contents: Data?, owner: Int32? = 501, group: Int32? = 501, last_path: inout String, last_domain: inout String, flag: inout Bool) {
+    private func addRegularConcreteFile(list: inout [BackupFile], path: String, contents: Data, owner: Int32 = 501, group: Int32 = 501, last_path: inout String, last_domain: inout String, flag: inout Bool) {
         let path_items = path.components(separatedBy: "/")
         guard path_items.count > 0 else { return }
         let domain = path_items[0]
@@ -172,7 +172,7 @@ class RestoreManager {
                 }
             }
             
-            addRegularConcreteFile(list: &backupFiles, path: self.convertToDomain(path: "/var/mobile/Library/Logs/RTCReporting/test.txt"), contents: nil, owner: nil, group: nil, last_path: &last_path, last_domain: &last_domain, flag: true)
+            addRegularConcreteFile(list: &backupFiles, path: self.convertToDomain(path: "/var/mobile/Library/Logs/RTCReporting/test.txt"), last_path: &last_path, last_domain: &last_domain, flag: true)
             
             // crash on purpose to skip setup (only works with exploit files)
             if exploit_only {

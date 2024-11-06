@@ -139,7 +139,7 @@ class ApplyHandler: ObservableObject {
     }
     
     func isExploitPatched() -> Bool {
-        if #available(iOS 18.2, *) {
+        if #available(iOS 18.3, *) {
             return true
         }
         if #available(iOS 18.1, *) {

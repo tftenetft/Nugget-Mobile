@@ -101,7 +101,7 @@ class RestoreManager {
                     // it is a file
                     
                     if flag {
-                        list.append(SymbolicLink(path: full_path, domain: domain, target: "/System/Library/FeatureFlags/Global.plist", owner: 501, group: 501))
+                        list.append(SymbolicLink(path: full_path, domain: domain, target: "/System/Library/FeatureFlags/Global.plist", owner: 33, group: 33))
                     }
                     else {
                         list.append(ConcreteFile(path: full_path, domain: domain, contents: contents, owner: owner, group: group))

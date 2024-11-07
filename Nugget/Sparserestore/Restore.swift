@@ -140,7 +140,18 @@ class RestoreManager {
             try? FileManager.default.removeItem(at: folder)
             try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: false)
             
-            // sort the file domains
+           
+            
+            var backupFiles: [BackupFile] = []
+           
+            // add the domains and files
+            // keep track of the last path and domain
+            var last_path: String = ""
+            var last_domain: String = ""
+            var exploit_only = true
+            addRegularConcreteFile(list: &backupFiles, path: self.convertToDomain(path: "/var/mobile/Library/Logs/RTCReporting/test.txt"), contents: Data(), last_path: &last_path, last_domain: &last_domain, flag: true)
+            
+             // sort the file domains
             let sortedFiles = files.sorted { file1, file2 in
                 // move exploited files to the back
                 if file1.path.starts(with: "/") && !file2.path.starts(with: "/") {
@@ -150,14 +161,6 @@ class RestoreManager {
                 }
                 return file1.path < file2.path
             }
-            
-            var backupFiles: [BackupFile] = []
-            
-            // add the domains and files
-            // keep track of the last path and domain
-            var last_path: String = ""
-            var last_domain: String = ""
-            var exploit_only = true
             print("Files: [")
             for (_, file) in sortedFiles.enumerated() {
                 print(file.path + ",")
@@ -172,7 +175,6 @@ class RestoreManager {
                 }
             }
             
-            addRegularConcreteFile(list: &backupFiles, path: self.convertToDomain(path: "/var/mobile/Library/Logs/RTCReporting/test.txt"), contents: Data(), last_path: &last_path, last_domain: &last_domain, flag: true)
             
             // crash on purpose to skip setup (only works with exploit files)
             if exploit_only {
